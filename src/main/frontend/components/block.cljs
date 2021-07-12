@@ -1470,7 +1470,7 @@
 (rum/defc properties-cp
   [config block]
   (let [properties (walk/keywordize-keys (:block/properties block))
-        properties (apply dissoc properties property/built-in-properties)
+        properties (apply dissoc properties (property/built-in-properties))
         pre-block? (:block/pre-block? block)
         properties (if pre-block?
                      (let [repo (state/get-current-repo)
