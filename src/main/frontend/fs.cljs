@@ -69,6 +69,7 @@
           (when (= bfs-record fs-record)
             (db/set-file-last-modified-at! repo (config/get-file-path repo path) (js/Date.))))
         (p/catch (fn [error]
+                   (js/console.dir error)
                    (log/error :file/write-failed {:dir dir
                                                   :path path
                                                   :error error})
